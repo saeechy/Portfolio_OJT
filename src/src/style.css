@@ -1,14 +1,214 @@
+.playfair-display-sc-bold {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.edu-nsw-act-cursive {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .navbar a {
     font-size: 20px;
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
     transition: .5s;
-    text-shadow: 0 0 10px #ff00ff;
+    text-shadow: 0 0 10px #000000;
 }
 
 .navbar a:hover, .navbar a.active {
-    color: rgb(0, 204, 255);
-    text-shadow: 0 0 20px #0ff0fc;
+    color: rgb(41, 49, 51);
+    text-shadow: 0 0 10px #ffffff;
 }
+
+.bg-img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 30%;
+}
+
+.imgsize {
+    height: 50vh;
+    width: 50vw;
+}
+
+.imgsize:hover{
+    transform: scale(1.1);
+    transition: 2s;
+}
+/* Card Hover */
+.card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0px 0px 0px rgb(0, 0, 0);
+  transition: transform 1s;
+}
+
+.img-fluid {
+  height: 30vh;
+  width: 30vw;
+}
+
+/* Intro animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Button */
+.btn:hover {
+  transition: 2s;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated background */
+.bg {
+  position: fixed;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.5;
+  background-image: linear-gradient(-60deg, rgb(199, 199, 199) 50%, white 50%);
+  animation: slide 3s ease-in-out infinite alternate;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 4s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+/* Testimonial */
+.testimonial-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+
+.testimonial {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideLoop 12s infinite;
+  text-align: center;
+}
+
+.testimonial:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.testimonial:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.testimonial:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.testimonial-icon {
+  font-size: 50px;
+  color: #ff0062;
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.testimonial-author {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+
+@keyframes slideLoop {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  10%, 30% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+/* Cards */
+.card {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* IMG MOBILE MODAL */
+.card img,
+.modal-body img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Footer link */
+.no-underline {
+  text-decoration: none;
+  color: inherit;
+}
+

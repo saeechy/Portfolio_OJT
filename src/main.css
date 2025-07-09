@@ -6335,8 +6335,8 @@ fieldset:disabled .btn {
 }
 
 .modal.fade .modal-dialog {
-  -webkit-transform: translate(0, -50px);
-          transform: translate(0, -50px);
+  -webkit-transform: skewY(20deg);
+          transform: skewY(20deg);
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;

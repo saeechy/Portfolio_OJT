@@ -1,141 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <script src="bootstrap.bundle.min.js"></script>
-    <title>Jose Port | About Me</title>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/Portfolio_OJT/src/portfolio.html">Home</a>
-            <a class="nav-item nav-link active" href="/Portfolio_OJT/src/aboutme.html">About Me</a>
-            <a class="nav-item nav-link" href="/Portfolio_OJT/src/myprojects.html">My Projects</a>
-            <a class="nav-item nav-link" href="/Portfolio_OJT/src/contactme.html">Contact Me</a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="/Portfolio_OJT/src/src/style.css" />
+  <script src="bootstrap.bundle.min.js"></script>
+  <script defer src="/Portfolio_OJT/src/src/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+  <title>Jose Port | About Me</title>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Jose's Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/Portfolio_OJT/src/portfolio.html">Home</a>
+        <a class="nav-item nav-link active" href="/Portfolio_OJT/src/aboutme.html">About Me</a>
+        <a class="nav-item nav-link" href="/Portfolio_OJT/src/myprojects.html">My Projects</a>
+        <a class="nav-item nav-link" href="/Portfolio_OJT/src/contactme.html">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container fade-in my-5">
+    <div class="text-center mb-5">
+      <h1 class="display-3 playfair-display-sc-bold">About Me</h1>
+      <p class="text-muted">Know more about my skills, education, and projects</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="p-4 border rounded bg-light shadow-sm">
+          <h2 class="h4 mb-3">Soft Skills</h2>
+          <table class="table table-striped table-bordered">
+            <tr><td>Adaptability</td><td>Creative</td></tr>
+            <tr><td>Problem Solving</td><td>Patient</td></tr>
+            <tr><td>Responsible</td><td>Teamwork</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 border rounded bg-light shadow-sm">
+          <h2 class="h4 mb-3">Technical Skills</h2>
+          <table class="table table-striped table-bordered">
+            <tr><td>Languages:</td><td>HTML, CSS, JavaScript</td></tr>
+            <tr><td>Frameworks:</td><td>Vue, React, Node, Angular, Bootstrap, Express</td></tr>
+            <tr><td>Tools:</td><td>Github, VSC, Netlify, Wordpress, Stackblitz</td></tr>
+            <tr><td>Databases:</td><td>MongoDB, MySQL</td></tr>
+            <tr><td>Testing Tool:</td><td>Postman</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="p-4 border rounded bg-white shadow-sm">
+          <h2 class="h4 mb-3">Education</h2>
+          <table class="table table-hover table-bordered">
+            <tr><td><strong>Degree:</strong></td><td>Bachelor of IT, Major in Web Development</td></tr>
+            <tr><td><strong>Institution:</strong></td><td>Holy Angel University</td></tr>
+            <tr><td><strong>Years:</strong></td><td>2022 - 2026</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 border rounded bg-white shadow-sm">
+          <h2 class="h4 mb-3">Certifications</h2>
+          <table class="table table-hover table-bordered">
+            <thead class="table-light">
+              <tr><th>Title</th><th>Link</th></tr>
+            </thead>
+            <tr>
+              <td>Responsive Web Design</td>
+              <td><a href="https://www.freecodecamp.org/certification/joeyyboi/responsive-web-design" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>JS Algorithm and Data Structures</td>
+              <td><a href="https://www.freecodecamp.org/certification/joeyyboi/javascript-algorithms-and-data-structures" target="_blank">View</a></td>
+            </tr>
+            <tr>
+              <td>SEO - 1</td>
+              <td><a href="https://app.hubspot.com/academy/achievements/gcfsjsly/en/1/jose-reyes/seo" target="_blank">View</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mb-4">
+      <h2 class="h1 fw-bold playfair-display-sc-bold">Major Projects</h2>
+    </div>
+    <div class="p-4 border rounded bg-light shadow-sm mb-5">
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td><strong>Tokyo Table</strong></td>
+          <td>MEVN stack-based restaurant web app with homepage design, menu search, and CRUD functionality.</td>
+        </tr>
+        <tr>
+          <td><strong>Library Management System</strong></td>
+          <td>Designed a system to enhance book cataloging and lending processes.</td>
+        </tr>
+        <tr>
+          <td><strong>Suburbia North (Group)</strong></td>
+          <td>Developed a website for this subdivision.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <footer class="py-4 mt-5">
+        <div class="container">
+            <div class="row text-center text-md-start align-items-center">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <p class="mb-0">&copy; 2025 Jose Reyes. All rights reserved.</p>
+            </div>
+
+            <div class="col-md-4 mb-3 mb-md-0 text-center">
+                <a href="/Portfolio_OJT/src/contactme.html" class="mb-1 no-underline">Connect with me!</a>
+            </div>
+
+            <div class="col-md-4 text-md-end text-center">
+                <p class="mb-0">Designed by Jose Reyes</p>
+            </div>
+
             </div>
         </div>
-    </nav>
-</head>
-<body>
-    <div class="container">
-        <figure class="text-center my-5">
-            <h1>About Me</h1>
-        </figure>
-    
-        <div class="container my-5">
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h2>Soft Skills</h2>
-             <table class="table table-bordered">
-            <tr>
-                <td>Adaptability</td>
-                <td>Creative</td>
-            </tr>
-            <tr>
-                <td>Problem Solving</td>
-                <td>Patient</td>
-            </tr>
-            <tr>
-                <td>Responsible</td>
-                <td>Teamwork</td>
-            </tr>
-        </table>
-        </div>
-
-
-        <div class="col-md-6">
-            <h2>Technical Skills</h2>
-            <table class="table table-bordered">
-                <tr>
-                    <td>Languages:</td>
-                    <td>HTML, CSS, JavaScript</td>
-                </tr>
-                <tr>
-                    <td>Frameworks:</td>
-                    <td>Vue, React, Node, Angular, Bootstrap, Express</td>
-                </tr>
-                <tr>
-                    <td>Tools and Platforms:</td>
-                    <td>Github, VSC, Netlify, Wordpress, Stackblitz</td>
-                </tr>
-                <tr>
-                    <td>Databases:</td>
-                    <td>MongoDB, MySQL</td>
-                </tr>
-                <tr>
-                    <td>Testing Tool:</td>
-                    <td>Postman</td>
-                </tr>
-        </table>
-        </div>
-    </div>
-    </div>
-
-    <div class="container my-5">
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h2>Education</h2>
-                <table class="table table-bordered">
-                        <tr>
-                            <td><strong>Degree:</strong></td>
-                            <td>Bachelor of Information Technology, Major in Web Development</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Institution:</strong></td>
-                            <td>Holy Angel University</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Years:</strong></td>
-                            <td>2022 - 2026</td>
-                        </tr>
-                </table>
-        </div>
-
-
-        <div class="col-md-6">
-            <h2>Certification & Projects</h2>
-            <table class="table table-bordered">
-                <tr>
-                    <th>Certification</th>
-                    <th>Link</th>
-                </tr>
-                <tr>
-                    <td>Responsive Web Design</td>
-                    <td><a href="https://www.freecodecamp.org/certification/joeyyboi/responsive-web-design" target="_blank">View Certification</a></td>
-                </tr>
-                <tr>
-                    <td>JS Algorithm and Data Structures</td>
-                    <td><a href="https://www.freecodecamp.org/certification/joeyyboi/javascript-algorithms-and-data-structures" target="_blank">View Certification</a></td>
-                </tr>
-                <tr>
-                    <td>SEO - 1</td>
-                    <td><a href="https://app.hubspot.com/academy/achievements/gcfsjsly/en/1/jose-reyes/seo" target="_blank">View Certification</a></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    </div>
-
-    <figure class="text-center">
-        <h2>Major Projects</h2>
-            <table class="table table-bordered">
-            <tr>
-                <td>Tokyo Table</td>
-                <td>Developed and deployed a MEVN stack-based restaurant web application with features like homepage design, menu search, and CRUD functionalities.</td>
-            </tr>
-            <tr>
-                <td>Library Management System</td>
-                <td>Designed a system to enhance book cataloging and lending processes.</td>
-            </tr>
-            </table>
-    </figure>
-    </div>
-
-
-    
+  </footer>
 </body>
 </html>

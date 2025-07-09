@@ -4,6 +4,7 @@
 // Include any default variable overrides here (though functions won’t be available)
 
 $primary: green;
+$modal-fade-transform: skewY(20deg);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
