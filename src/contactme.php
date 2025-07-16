@@ -1,34 +1,88 @@
+<?php
+session_start();
+include 'config.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
+require 'PHPMailer-master/src/Exception.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name = htmlspecialchars($_POST['name']);
+  $email = htmlspecialchars($_POST['email']);
+  $message = htmlspecialchars($_POST['message']);
+
+  $stmt = $conn->prepare("INSERT INTO contact_messages (full_name, email, message) VALUES (?, ?, ?)");
+  $stmt->bind_param("sss", $name, $email, $message);
+
+  if ($stmt->execute()) {
+    // ✅ Only send email if DB insert is successful
+    $mail = new PHPMailer(true);
+    $emails = new PHPMailer(true);
+
+    try {
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host       = 'localhost';
+        $mail->Port       = 1025;
+        $mail->SMTPAuth   = false;
+        $mail->SMTPSecure = '';
+
+        $mail->setFrom('jc1289716@gmail.com', 'Mailer');
+        $mail->addAddress('jb1289716@gmail.com', 'Joeyboi');
+        $mail->addReplyTo('saeechy@gmail.com', 'Information');
+
+        $mail->addAttachment('../img/businesscard.png', 'Contact me');
+
+        $mail->isHTML(true);
+        $mail->Subject = 'New Contact Form Submission';
+        $mail->Body    = "
+            <strong>Full Name:</strong> {$name}<br>
+            <strong>Email:</strong> {$email}<br>
+            <strong>Message:</strong><br>{$message}
+        ";
+        $mail->AltBody = "Full Name: $name\nEmail: $email\nMessage:\n$message";
+
+        // For email
+        $emails->SMTPDebug = 0;
+        $emails->isSMTP();
+        $emails->Host       = 'localhost';
+        $emails->Port       = 1025;
+        $emails->SMTPAuth   = false;
+        $emails->SMTPSecure = '';
+
+        $emails->setFrom('noreply@gmail.com', 'noreply');
+        $emails->addAddress('jb1289716@gmail.com', 'Joeyboi');
+        $emails->addReplyTo('saeechy@gmail.com', 'Information');
+        $emails->isHTML(true);
+        $emails->Subject = 'Thank you for contacting me!';
+        $emails->Body    = "
+            <strong>Thank you for reaching out, {$name}!</strong><br>
+            I appreciate your message and will get back to you as soon as possible.<br>
+        ";
+        $mail->AltBody = "Full Name: $name\nEmail: $email\nMessage:\n$message";
+
+        $mail->send();
+        $emails->send();
+        echo "<script>alert('Message sent and email delivered successfully!');</script>";
+    } catch (Exception $e) {
+        echo "<script>alert('Database saved, but Mailer Error: {$mail->ErrorInfo}');</script>";
+    }
+  } else {
+    echo "<script>alert('Error saving to database.');</script>";
+  }
+
+  $stmt->close();
+  $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="/Portfolio_OJT/src/src/style.css" />
-  <link rel="stylesheet" href="/Portfolio_OJT/src/src/style.css">
-  <script src="bootstrap.bundle.min.js"></script>
-  <script src="/Portfolio_OJT/src/src/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Jose Port | Contact Me</title>
-
-  <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Jose's Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/portfolio.html">Home</a>
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/aboutme.html">About Me</a>
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/myprojects.html">My Projects</a>
-        <a class="nav-item nav-link active" href="/Portfolio_OJT/src/contactme.html">Contact Me</a>
-      </div>
-    </div>
+    <?php include 'src/navigation.php'?>
     </div>
   </nav>
 </head>
@@ -48,24 +102,25 @@
           <div class="card shadow" style="border-radius: 15px;">
             <div class="card-body p-4">
               <h1 class="mb-4 text-center playfair-display-sc-bold">Work with me!</h1>
-
+            <form method="POST">
               <div class="mb-3">
                 <label class="form-label">Full Name</label>
-                <input type="text" class="form-control form-control-lg" />
+                <input type="text" name="name" class="form-control form-control-lg" required />
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Email Address</label>
-                <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="example@example.com" required />
               </div>
 
               <div class="mb-3">
                 <label class="form-label">Message</label>
-                <textarea class="form-control" rows="4" placeholder="Message sent to the employer"></textarea>
+                <textarea class="form-control" name="message" rows="4" placeholder="Message sent to the employer" required></textarea>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-outline-dark btn-lg px-5">Send</button>
+                <button  type="submit" class="btn btn-outline-dark btn-lg px-5">Send</button>
               </div>
+            </form>
             </div>
           </div>
         </section>

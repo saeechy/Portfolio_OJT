@@ -1,38 +1,37 @@
+<?php
+session_start();
+include 'config.php'; // DB connection
+
+// Fetch content from the database
+$sql = "SELECT key_name, content FROM content";
+$result = $conn->query("SELECT key_name, content FROM content");
+
+$content = [
+    'intro_paragraph' => '',
+    'about_me' => '',
+    'my_work' => '',
+    'get_in_touch' => ''
+];
+
+
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $content[$row['key_name']] = $row['content'];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="/Portfolio_OJT/src/src/style.css" />
-  <script src="bootstrap.bundle.min.js"></script>
-  <script defer src="/Portfolio_OJT/src/src/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+  
   <title>Jose Port | About Me</title>
+  <?php include 'src/navigation.php'?>
 </head>
 
 <body>
   <div class="bg"></div>
   <div class="bg bg2"></div>
-
-  <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Jose's Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/portfolio.html">Home</a>
-        <a class="nav-item nav-link active" href="/Portfolio_OJT/src/aboutme.html">About Me</a>
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/myprojects.html">My Projects</a>
-        <a class="nav-item nav-link" href="/Portfolio_OJT/src/contactme.html">Contact Me</a>
-      </div>
-    </div>
   </div>
 </nav>
 
@@ -40,7 +39,16 @@
   <div class="container fade-in my-5">
     <div class="text-center mb-5">
       <h1 class="display-3 playfair-display-sc-bold">About Me</h1>
-      <p class="text-muted">Know more about my skills, education, and projects</p>
+      <?php if (isset($_SESSION['user_id'])): ?>
+        <form method="POST" action="save_cms.php">
+          <textarea name="about_me" class="form-control mb1" rows="5"><?php echo htmlspecialchars(string: $content['about_me']);?></textarea>
+          <button type="submit" class="btn btn-success my-2">Save Changes</button>
+        </form>
+      <?php else: ?>
+        <p class="h5 text-justify">
+          <?php echo htmlspecialchars(string: $content['about_me']); ?>
+        </p>
+      <?php endif; ?>
     </div>
 
     <div class="row g-4 mb-5">
