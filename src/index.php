@@ -1,5 +1,17 @@
 <?php
 session_start();
+// For Vercel
+header('Content-Type: application/json');
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  $response = [
+    'message' => 'GET request received'
+  ];
+  echo json_encode($response);
+} else {
+  http_response_code(405);
+  echo json_encode(array ('error' => 'Method Not Allowed'));
+}
+
 include 'config.php'; // DB connection
 
 // Fetch content from the database
