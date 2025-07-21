@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["user_id"])) {
-    header('Location: portfolio.php');
+    header('Location: index.php');
     exit();
 }
 ?>
@@ -108,7 +108,7 @@ if (isset($_SESSION["user_id"])) {
                             icon: "success",
                             text: "Login successful. Redirecting...",
                         }).then(() => {
-                            window.location.href = 'portfolio.php';
+                            window.location.href = 'index.php';
                         });
                     } else {
                         Swal.fire({

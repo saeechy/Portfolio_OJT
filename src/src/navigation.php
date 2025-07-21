@@ -35,7 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/Portfolio_OJT_PHP/src/portfolio.php">Home</a>
+                <a class="nav-item nav-link" href="/Portfolio_OJT_PHP/src/index.php">Home</a>
                 <a class="nav-item nav-link" href="/Portfolio_OJT_PHP/src/aboutme.php">About Me</a>
                 <a class="nav-item nav-link" href="/Portfolio_OJT_PHP/src/myprojects.php">My Projects</a>
                 <a class="nav-item nav-link" href="/Portfolio_OJT_PHP/src/contactme.php">Contact Me</a>
@@ -69,7 +69,7 @@ if (session_status() === PHP_SESSION_NONE) {
                             url: 'backend/logout.php',
                             type: 'POST',
                             success: function (response) {
-                                window.location.href = '/Portfolio_OJT_PHP/src/portfolio.php';
+                                window.location.href = '/Portfolio_OJT_PHP/src/index.php';
                             }
                         });
                     }

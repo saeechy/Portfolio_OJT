@@ -15,6 +15,6 @@ foreach ($fields as $field) {
     }
 }
 
-header("Location: portfolio.php");
+header("Location: index.php");
 exit();
 ?>
